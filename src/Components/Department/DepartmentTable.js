@@ -7,8 +7,8 @@ const DepartmentTable = (props) => {
 
     return (
       <div>
-        <table className="table table-condensed table-hover">
-          <thead>
+        <table className="table table-striped table-condensed">
+          <thead className="thead-dark">
             <tr>
               <th>Name</th>
             </tr>

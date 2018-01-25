@@ -7,8 +7,8 @@ const EmployeeTable = (props) => {
 
     return (
       <div>
-        <table className="table table-striped table-hover table-condensed table-responsive">
-          <thead>
+        <table className="table table-striped table-condensed">
+          <thead className="thead-dark">
             <tr>
               <th>Name</th>
               <th>Personal Phone</th>
