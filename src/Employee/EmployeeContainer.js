@@ -1,15 +1,15 @@
 
 import React, { Component } from 'react';
+import { connect } from 'react-redux'
+import PropTypes from 'prop-types';
+
+import * as Actions from './EmployeeActions'
 import EmployeeTable from'./EmployeeTable'
 
-//const uuid = require('uuid/v1')
 
 class EmployeeContainer extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      employees: [],
-    };
   }
 
   componentDidMount(){
@@ -17,7 +17,7 @@ class EmployeeContainer extends Component {
         //console.log(data)
         return data.json()
       }).then((employee) => {
-        this.setState({employees:employee })
+        this.setState(this.props.loadEmpl(employee))
       })
   }
 
@@ -28,7 +28,7 @@ class EmployeeContainer extends Component {
           <h1>Employees</h1>
         </div>
         <div>
-          <EmployeeTable employees={this.state.employees} />
+          <EmployeeTable employees={this.props.Employee} />
         </div>
       </div>
     );
@@ -37,4 +37,25 @@ class EmployeeContainer extends Component {
 
 }
 
-export default EmployeeContainer;
+EmployeeContainer.propTypes = {
+  Employee:PropTypes.array,
+  loadEmpl: PropTypes.func
+}
+EmployeeContainer.defaultProps = {
+  Employee:[],
+  loadEmpl: () => {}
+}
+
+function mapStateToProps(state) {
+  return {
+    Employee: state.employees.Employee
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    loadEmpl: path => dispatch(Actions.loadEmpl(path))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(EmployeeContainer)

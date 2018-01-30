@@ -1,23 +1,22 @@
 
 import React, { Component } from 'react';
+import { connect } from 'react-redux'
+import PropTypes from 'prop-types';
+
+import * as Actions from './DepartmentActions'
 import DepartmentTable from'./DepartmentTable'
 
-//const uuid = require('uuid/v1')
 
 class DepartmentContainer extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      departments: [],
-    };
   }
 
   componentDidMount(){
     fetch('http://localhost:3000/Departments').then((data) => {
-        //console.log(data)
         return data.json()
       }).then((department) => {
-        this.setState({departments:department })
+        this.props.loadDepa(department)
       })
   }
 
@@ -28,7 +27,7 @@ class DepartmentContainer extends Component {
           <h1>Departments</h1>
         </div>
         <div>
-          <DepartmentTable departments={this.state.departments} />
+          <DepartmentTable departments={this.props.Department} />
         </div>
       </div>
     );
@@ -37,4 +36,25 @@ class DepartmentContainer extends Component {
 
 }
 
-export default DepartmentContainer;
+DepartmentContainer.propTypes = {
+  Department:PropTypes.array,
+  loadDepa: PropTypes.func
+}
+DepartmentContainer.defaultProps = {
+  Department:[],
+  loadDepa: () => {}
+}
+
+function mapStateToProps(state) {
+  return {
+    Department: state.departments.Department
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    loadDepa: path => dispatch(Actions.loadDepa(path))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(DepartmentContainer)

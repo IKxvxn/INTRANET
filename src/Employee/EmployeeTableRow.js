@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 const EmployeeTableRow = (props) => {
 
     return (
-        props.employees.map(function(employee) {
+        props.employees.map(function(employee) {            
             return(
                 <tr key={employee.Key}>
                     <th>{employee.Name}</th>

@@ -7,9 +7,11 @@ require('./Style/bootstrap.css');
 const App = () => {
 
     return (
-      <div className="App container-fluid">
-        <DepartmentContainer />
-        <EmployeeContainer />
+      <div>
+        <div className="App container-fluid">
+          <DepartmentContainer />
+          <EmployeeContainer />
+        </div>
       </div>
     );
 }
