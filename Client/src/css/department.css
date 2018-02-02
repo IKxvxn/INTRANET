@@ -1,0 +1,23 @@
+
+  .sidebar-sticky {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 48px; 
+    height: calc(100vh - 48px);
+    padding-top: .5rem;
+    overflow-x: hidden;
+    overflow-y: auto; 
+  }
+
+  .sidebar .nav-link {
+    font-weight: 500;
+    color: #333;
+  }
+
+  .sidebar-heading {
+    font-size: 1rem;
+    text-transform: capitalize;
+    font-weight: bold;
+  }
+  
+ 

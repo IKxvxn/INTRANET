@@ -1,0 +1,22 @@
+.rowText-Format{
+    font-weight: 100;
+    color: rgb(51, 51, 51);
+    font-size: 0.75rem;
+}
+
+.table-heading {
+    pad: 10rem;
+    font-size: .8rem;
+    text-transform: capitalize;
+    color:#343a40;
+    font-weight: bold;
+
+  }
+
+  .btn-circle {
+    background-color:#343a40;
+    color: white;
+    height: 30px;
+    width: 30px;
+    border-radius: 50% !important;
+  }

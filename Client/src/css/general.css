@@ -1,0 +1,15 @@
+.default-Wrap{
+    background: #eef1f6;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    min-width: 100vh;
+    min-height: 100vh;
+    position: relative;
+	font-family: "lato", sans-serif;
+    font-size: 0.9rem;
+    overflow-x: hidden;
+    overflow-y: hidden;
+	margin: 0;
+    padding: 0;
+}
